@@ -32,14 +32,32 @@ src_unpack() {
 	unpack_deb ${P}.deb
 }
 
+src_prepare() {
+	default
+}
+
 src_install() {
-	exeinto /usr/bin
-	doexe usr/bin/clash
-	doexe usr/bin/clash-meta
-	doexe usr/bin/clash-verge
+	dobin usr/bin/{clash,clash-meta,clash-verge}
+
+	insinto /usr/lib
+	doins usr/lib/clash-verge/resources/Country.mmdb
+
 	domenu usr/share/applications/clash-verge.desktop
+
 	doicon usr/share/icons/hicolor/128x128/apps/clash-verge.png
 	doicon usr/share/icons/hicolor/256x256@2/apps/clash-verge.png
 	doicon usr/share/icons/hicolor/32x32/apps/clash-verge.png
-	doins usr/lib/clash-verge/resources/Country.mmdb
+
+}
+
+pkg_postinst() {
+	udev_reload
+	xdg_desktop_database_update
+	xdg_icon_cache_update
+}
+
+pkg_postrm() {
+	udev_reload
+	xdg_desktop_database_update
+	xdg_icon_cache_update
 }
