@@ -49,17 +49,14 @@ src_install() {
 	doicon -s 128 usr/share/icons/hicolor/128x128/apps/${MY_PN}.png
 	doicon -s 256 usr/share/icons/hicolor/256x256@2/apps/${MY_PN}.png
 	doicon -s 32 usr/share/icons/hicolor/32x32/apps/${MY_PN}.png
-
 }
 
 pkg_postinst() {
-	udev_reload
 	xdg_desktop_database_update
 	xdg_icon_cache_update
 }
 
 pkg_postrm() {
-	udev_reload
 	xdg_desktop_database_update
 	xdg_icon_cache_update
 }
