@@ -34,7 +34,9 @@ src_unpack() {
 
 src_install() {
 	exeinto /usr/bin
-	doexe -r usr/bin/clash*
+	doexe usr/bin/clash
+	doexe usr/bin/clash-meta
+	doexe usr/bin/clash-verge
 	domenu usr/share/applications/clash-verge.desktop
 	doicon -r usr/share/icons/hicolor/*
 	doins -r usr/lib/clash-verge/*
