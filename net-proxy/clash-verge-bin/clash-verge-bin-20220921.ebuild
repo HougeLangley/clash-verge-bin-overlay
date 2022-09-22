@@ -1,7 +1,7 @@
 # Copyright 1999-2022 Gentoo Authors
 # Distributed under the terms of the GNU General Public License v2
 
-EAPI = 8
+EAPI=8
 
 inherit unpacker desktop xdg
 
@@ -10,7 +10,7 @@ HOMEPAGE="https://github.com/zzzgydi/clash-verge"
 
 KEYWORDS="~amd64"
 
-SRC_URI="https://github.com/HougeLangley/clash-verge-pkg/releases/download/gentoo/${PVR}.deb"
+SRC_URI="https://github.com/HougeLangley/clash-verge-pkg/releases/download/gentoo/${P}.deb"
 
 LICENSE="GPL-3"
 SLOT="0"
@@ -29,7 +29,7 @@ BDEPEND=""
 S="${WORKDIR}"
 
 src_unpack() {
-	unpack_deb ${PVR}.deb
+	unpack_deb ${P}.deb
 }
 
 src_install() {
