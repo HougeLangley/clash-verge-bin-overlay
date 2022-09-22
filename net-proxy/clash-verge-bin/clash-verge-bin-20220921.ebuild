@@ -53,7 +53,7 @@ src_install() {
 	doicon usr/share/icons/hicolor/256x256@2/apps/${MY_PN}.png
 
 	insinto /usr/share/icons/hicolor/32x32/apps
-	doicon usr/share/icons/hicolor/32x32/apps/${MY_PN}png
+	doicon usr/share/icons/hicolor/32x32/apps/${MY_PN}.png
 
 }
 
