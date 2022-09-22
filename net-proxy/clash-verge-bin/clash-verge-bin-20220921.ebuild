@@ -3,6 +3,8 @@
 
 EAPI=8
 
+MY_PN="${PN/-bin}"
+
 inherit unpacker desktop xdg
 
 DESCRIPTION="A Clash GUI based on tauri"
@@ -39,14 +41,19 @@ src_prepare() {
 src_install() {
 	dobin usr/bin/{clash,clash-meta,clash-verge}
 
-	insinto /usr/lib
-	doins usr/lib/clash-verge/resources/Country.mmdb
+	insinto /usr/lib/${MY_PN}/resources
+	doins usr/lib/${MY_PN}/resources/Country.mmdb
 
-	domenu usr/share/applications/clash-verge.desktop
+	domenu usr/share/applications/${MY_PN}.desktop
 
-	doicon usr/share/icons/hicolor/128x128/apps/clash-verge.png
-	doicon usr/share/icons/hicolor/256x256@2/apps/clash-verge.png
-	doicon usr/share/icons/hicolor/32x32/apps/clash-verge.png
+	insinto /usr/share/icons/hicolor/128x128/apps
+	doicon usr/share/icons/hicolor/128x128/apps/${MY_PN}.png
+
+	insinto /usr/share/icons/hicolor/256x256@2/apps
+	doicon usr/share/icons/hicolor/256x256@2/apps/${MY_PN}.png
+
+	insinto /usr/share/icons/hicolor/32x32/apps
+	doicon usr/share/icons/hicolor/32x32/apps/${MY_PN}png
 
 }
 
