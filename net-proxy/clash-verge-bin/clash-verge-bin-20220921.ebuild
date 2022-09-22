@@ -38,6 +38,8 @@ src_install() {
 	doexe usr/bin/clash-meta
 	doexe usr/bin/clash-verge
 	domenu usr/share/applications/clash-verge.desktop
-	doicon -r usr/share/icons/hicolor/*
-	doins -r usr/lib/clash-verge/*
+	doicon usr/share/icons/hicolor/128x128/apps/clash-verge.png
+	doicon usr/share/icons/hicolor/256x256@2/apps/clash-verge.png
+	doicon usr/share/icons/hicolor/32x32/apps/clash-verge.png
+	doins usr/lib/clash-verge/resources/Country.mmdb
 }
