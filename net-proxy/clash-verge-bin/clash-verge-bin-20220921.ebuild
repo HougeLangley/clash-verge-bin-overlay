@@ -25,6 +25,7 @@ RDEPEND="
 	dev-libs/gobject-introspection-common
 	sys-apps/yarn
 	dev-lang/rust
+	!net-proxy/clash
 "
 BDEPEND=""
 
