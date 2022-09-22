@@ -46,14 +46,9 @@ src_install() {
 
 	domenu usr/share/applications/${MY_PN}.desktop
 
-	insinto /usr/share/icons/hicolor/128x128/apps
-	doicon usr/share/icons/hicolor/128x128/apps/${MY_PN}.png
-
-	insinto /usr/share/icons/hicolor/256x256@2/apps
-	doicon usr/share/icons/hicolor/256x256@2/apps/${MY_PN}.png
-
-	insinto /usr/share/icons/hicolor/32x32/apps
-	doicon usr/share/icons/hicolor/32x32/apps/${MY_PN}.png
+	doicon -s 128 usr/share/icons/hicolor/128x128/apps/${MY_PN}.png
+	doicon -s 256 usr/share/icons/hicolor/256x256@2/apps/${MY_PN}.png
+	doicon -s 32 usr/share/icons/hicolor/32x32/apps/${MY_PN}.png
 
 }
 
