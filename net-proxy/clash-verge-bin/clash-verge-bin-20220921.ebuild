@@ -3,8 +3,6 @@
 
 EAPI=8
 
-MY_PN="${PN/-bin}"
-
 inherit unpacker desktop xdg
 
 DESCRIPTION="A Clash GUI based on tauri"
@@ -27,8 +25,6 @@ RDEPEND="
 	dev-lang/rust
 "
 BDEPEND=""
-
-QA_PREBUILT="usr/bin/${MY_PN}"
 
 S="${WORKDIR}"
 
