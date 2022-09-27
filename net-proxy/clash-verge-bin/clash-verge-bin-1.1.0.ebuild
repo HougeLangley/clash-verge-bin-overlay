@@ -13,7 +13,7 @@ HOMEPAGE="https://github.com/zzzgydi/clash-verge"
 
 KEYWORDS="~amd64"
 
-SRC_URI="https://github.com/zzzgydi/${MY_PN}/releases/download/v1.1.0/${MY_PN}_${DEB_VER}_amd64.deb"
+SRC_URI="https://github.com/zzzgydi/${MY_PN}/releases/download/v${DEB_VER}/${MY_PN}_${DEB_VER}_amd64.deb"
 
 LICENSE="GPL-3"
 SLOT="0"
