@@ -4,6 +4,7 @@
 EAPI=8
 
 MY_PN="${PN/-bin}"
+DEB_VER="1.1.0"
 
 inherit unpacker desktop xdg
 
@@ -12,35 +13,30 @@ HOMEPAGE="https://github.com/zzzgydi/clash-verge"
 
 KEYWORDS="~amd64"
 
-SRC_URI="https://github.com/HougeLangley/clash-verge-pkg/releases/download/gentoo/${P}.deb"
+SRC_URI="https://github.com/zzzgydi/${MY_PN}/releases/download/v1.1.0/${MY_PN}_${DEB_VER}_amd64.deb"
 
 LICENSE="GPL-3"
 SLOT="0"
-IUSE=""
+IUSE="system-clash"
 
 DEPEND=""
 RDEPEND="
 	dev-libs/libappindicator
 	net-libs/webkit-gtk
 	dev-libs/gobject-introspection-common
-	sys-apps/yarn
-	dev-lang/rust
-	!net-proxy/clash
+	system-clash? ( net-proxy/clash )
+	!system-clash? ( !net-proxy/clash )
 "
 BDEPEND=""
 
 S="${WORKDIR}"
 
-src_unpack() {
-	unpack_deb ${P}.deb
-}
-
-src_prepare() {
-	default
-}
-
 src_install() {
-	dobin usr/bin/{clash,clash-meta,clash-verge}
+	if	use	system-clash;	then
+		dobin usr/bin/{clash-meta,clash-verge}
+	else
+		dobin usr/bin/{clash,clash-meta,clash-verge}
+	fi
 
 	insinto /usr/lib/${MY_PN}/resources
 	doins usr/lib/${MY_PN}/resources/Country.mmdb
@@ -50,14 +46,4 @@ src_install() {
 	doicon -s 128 usr/share/icons/hicolor/128x128/apps/${MY_PN}.png
 	doicon -s 256 usr/share/icons/hicolor/256x256@2/apps/${MY_PN}.png
 	doicon -s 32 usr/share/icons/hicolor/32x32/apps/${MY_PN}.png
-}
-
-pkg_postinst() {
-	xdg_desktop_database_update
-	xdg_icon_cache_update
-}
-
-pkg_postrm() {
-	xdg_desktop_database_update
-	xdg_icon_cache_update
 }
